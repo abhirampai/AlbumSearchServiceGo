@@ -71,3 +71,17 @@ func Update(c *gin.Context) {
 
 	c.IndentedJSON(http.StatusNotFound, gin.H{ "message": "Album not found" })
 }
+
+func Destroy(c *gin.Context) {
+	id := c.Param("id")
+
+	for index, album := range models.Albums {
+		if album.ID == id {
+			models.Albums = append(models.Albums[:index], models.Albums[index+1:]...)
+			c.IndentedJSON(http.StatusOK, gin.H{ "message": "Album deleted successfully"})
+			return
+		}
+	}
+
+	c.IndentedJSON(http.StatusNotFound, gin.H{ "message": "Album not found" })
+}
