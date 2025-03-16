@@ -1,4 +1,4 @@
-module example/album_search_go_service
+module album_search_go_service
 
 go 1.23.3
 
