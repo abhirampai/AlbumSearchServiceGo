@@ -13,6 +13,7 @@ func main() {
 	router.GET("/artists", artists.Index)
 	router.POST("/albums", albums.Create)
 	router.PUT("/albums/:id", albums.Update)
+	router.DELETE("/albums/:id", albums.Destroy)
 
 	router.Run("localhost:8080")
 }
